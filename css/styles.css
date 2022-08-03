@@ -2,6 +2,7 @@
     --primary-text-color: #757575;
     --title-text-color: #212121;
     --accent-color: #2196F3;
+    --accent-color-hover-btn: #188CE8;
     --text-color-white: #ffffff;
     --backgraund-color-grey: #F5F4FA;
     --backgraund-color-dark: #2F303A;
@@ -187,12 +188,20 @@ img{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     cursor: pointer;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
     margin: 0 auto;
     padding-top: 10px;
     padding-right: 32px;
     padding-bottom: 10px;
     padding-left: 32px;
+    transition: background-color var(--anim-fast) var(--transition-func);
+}
+.hero-btn:hover,
+.hero-btn:focus{
+    background-color: var(--accent-color-hover-btn);
 }
 /* Особенности  */
 .features-title{
@@ -295,6 +304,9 @@ img{
     color: var(--text-color-white);
     margin-bottom: 20px;
 }
+.footer-subscribe{
+    margin-left: auto;
+}
 .footer-subscribe-form{
     display: inline-flex;
     gap: 12px;
@@ -310,21 +322,9 @@ img{
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 4px;
 }
-.footer-subscribe-btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 29px;
-    font-size: 16px;
-    line-height: calc(30/16);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    fill: var(--text-color-white);
-    color: var(--text-color-white);
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.footer-subscribe-icon{
+    fill: currentColor;
+    margin-left: 10px;
 }
 .address{
     font-style: inherit;
@@ -533,6 +533,7 @@ img{
 }
 .modal{
     width: 528px;
+    min-height: 581px;
     background-color: var(--text-color-white);
     border-radius: 4px;
     position: absolute;
@@ -571,6 +572,7 @@ img{
     display: block;
     margin-bottom: 12px;
     font-size: 20px;
+    line-height: calc(23 / 20);
     text-align: center;
     color: var(--title-text-color);
 }
@@ -578,15 +580,14 @@ img{
     margin-bottom: 20px;
 }
 .register-form-wrap{
-    position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
 }
 .register-form-wrap:last-child{
     margin-bottom: 0;
 }
 .register-form-label{
-    display: block;
     font-size: 12px;
     line-height: calc(14 / 12);
     text-align: left;
@@ -598,18 +599,22 @@ img{
     border: 1px solid rgba(33, 33, 33, 0.2);
     padding: 11px;
     padding-left: 40px;
+    height: 40px;
     outline: transparent;
     border-radius: 4px;
     transition: border var(--anim-fast) var(--transition-func);
 }
-.register-form-wrap:hover > .register-form-input,
-.register-form-wrap:focus-within > .register-form-input,
-.register-form-wrap:hover>.register-form-message,
-.register-form-wrap:focus-within>.register-form-message{
+.register-form-input-wrap{
+    position: relative;
+}
+.register-form-input:hover,
+.register-form-message:hover,
+.register-form-input:focus,
+.register-form-message:focus{
     border: 1px solid var(--accent-color);
 }
-.register-form-wrap:hover > .register-form-icon,
-.register-form-wrap:focus-within > .register-form-icon{
+.register-form-input:hover + .register-form-icon,
+.register-form-input:focus + .register-form-icon{
     fill: var(--accent-color);
 }
 .register-form-message{
@@ -619,7 +624,8 @@ img{
 }
 .register-form-icon{
     position: absolute;
-    bottom: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 11px;
     transition: fill var(--anim-fast) var(--transition-func);
 }
@@ -629,6 +635,10 @@ img{
 }
 .register-checkbox:checked+.register-icon .register-icon-check{
     opacity: 1;
+}
+.register-checkbox:hover+.register-icon .register-icon-uncheck,
+.register-checkbox:focus+.register-icon .register-icon-uncheck{
+    fill: var(--accent-color);
 }
 .register-icon-check{
     opacity: 0;
@@ -640,6 +650,7 @@ img{
     justify-content: center;
     gap: 8px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 .register-form-agreement-text{
     line-height: 2;
@@ -649,19 +660,4 @@ img{
 }
 .register-form-agreement-link{
     color: var(--accent-color);
-}
-.register-form-btn{
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 55px;
-    font-size: 16px;
-    line-height: calc(30/16);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--text-color-white);
-    background-color: var(--accent-color);
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0px 4px 4px 0px (0, 0, 0, 0.15);
-    cursor: pointer;
 }
