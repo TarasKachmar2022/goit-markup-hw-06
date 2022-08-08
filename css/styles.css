@@ -11,7 +11,7 @@
     /* Other */
     --indent: 30px;
     --item: 4;
-    --anim-fast: 250ms;
+    --anim-fast: 2500ms;
     --transition-func: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body{
@@ -604,6 +604,12 @@ img{
     border-radius: 4px;
     transition: border var(--anim-fast) var(--transition-func);
 }
+.register-form-message::placeholder{
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+}
 .register-form-input-wrap{
     position: relative;
 }
@@ -640,6 +646,9 @@ img{
 .register-checkbox:focus+.register-icon .register-icon-uncheck{
     fill: var(--accent-color);
 }
+.register-icon-uncheck{
+    transition: fill var(--anim-fast) var(--transition-func);
+}
 .register-icon-check{
     opacity: 0;
     transition: opacity var(--anim-fast) var(--transition-func);
@@ -654,7 +663,7 @@ img{
 }
 .register-form-agreement-text{
     line-height: 2;
-    letter-spacing: 00.03em;
+    letter-spacing: 0.03em;
     user-select: none;
     text-underline-position: under;
 }
